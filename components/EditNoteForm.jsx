@@ -13,7 +13,7 @@ export default function EditNoteForm({ id, title, content }) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`http://localhost:3000/api/notes/${id}`, {
+      const res = await fetch(`/api/notes/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
