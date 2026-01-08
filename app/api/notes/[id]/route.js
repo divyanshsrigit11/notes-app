@@ -3,7 +3,6 @@ import Note from "@/models/note";
 import { NextResponse } from "next/server";
 
 export async function PUT(request, { params }) {
-  // ⬇️ FIX: Await params here
   const { id } = await params;
   
   const { newTitle: title, newContent: content } = await request.json();
@@ -13,7 +12,6 @@ export async function PUT(request, { params }) {
 }
 
 export async function GET(request, { params }) {
-  // ⬇️ FIX: Await params here
   const { id } = await params;
   
   await connectMongoDB();

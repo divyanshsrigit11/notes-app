@@ -2,7 +2,7 @@ import EditNoteForm from "@/components/EditNoteForm";
 
 const getNoteById = async (id) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/notes/${id}`, {
+    const res = await fetch(`https://notes-app-zeta-drab.vercel.app/api/notes/${id}`, {
       cache: "no-store",
     });
 
@@ -13,17 +13,16 @@ const getNoteById = async (id) => {
     return res.json();
   } catch (error) {
     console.log(error);
-    return { note: null }; // Return null safely if error
+    return { note: null }; 
   }
 };
 
 export default async function EditNote({ params }) {
-  // ⬇️ FIX: Await the params object here
   const { id } = await params; 
   
   const { note } = await getNoteById(id);
 
-  // Safety check in case note is not found
+  // if note is not found.. :)
   if (!note) {
     return <div>Note not found</div>;
   }
